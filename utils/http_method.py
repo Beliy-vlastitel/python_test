@@ -11,7 +11,7 @@ class HttpMethods:
     @staticmethod
     def get(url):
         with allure.step("GET"):
-            Logger.add_request(url,method="GET")
+            Logger.add_request(url, method="GET")
             result = requests.get(url, headers=HttpMethods.headers, cookies=HttpMethods.cookie)
             Logger.add_response(result)
             return result
