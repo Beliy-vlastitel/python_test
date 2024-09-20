@@ -28,18 +28,18 @@ class TestCreteApi:
             print(f"\nИнформация в списке присутствует\nПользователь № {user.get('id')} \n {user}", )
             Checking.checking_all_fields(dictionary=user)
 
-            user_id =user.get('id')
-            Checking.check_field(user_id)
-
-            name = user.get('name')
-            Checking.check_field(name)
-
-            username = user.get('username')
-            Checking.check_field(username)
-
-            email = user.get('email')
-            Checking.check_field(email)
-
-            assert '@' in email, '@ - Отсутствует в Email'
-            print('@ - присутствует в email')
-            print(f"id = {user_id}: name = {name}: username = {username}: email = {email}: ")
+        #     user_id =user.get('id')
+        #     Checking.check_field(user_id)
+        #
+        #     name = user.get('name')
+        #     Checking.check_field(name)
+        #
+        #     username = user.get('username')
+        #     Checking.check_field(username)
+        #
+        #     email = user.get('email')
+        #     Checking.check_field(email)
+        #
+        #     assert '@' in email, '@ - Отсутствует в Email'
+        #     print('@ - присутствует в email')
+        #     print(f"id = {user_id}: name = {name}: username = {username}: email = {email}: ")

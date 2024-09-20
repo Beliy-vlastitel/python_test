@@ -21,7 +21,11 @@ class Checking:
         """Метод проверки количества ключей полей"""
     @staticmethod
     def checking_all_fields(dictionary):
-        print(list(dictionary.keys()))
+        keys = list(dictionary.keys())
+        for key in keys:
+            if key == "None":
+                print("None - Отсутствует название ключа")
+        return print(keys)
 
     """Метод проверки количества пользователей"""
     @staticmethod
