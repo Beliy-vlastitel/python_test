@@ -1,5 +1,6 @@
 from utils.api import PublicApi
 from utils.cheking import Checking
+from utils.pars import User
 import allure
 
 """ Проверить статус код
@@ -27,6 +28,8 @@ class TestCreteApi:
             assert user!={}, "Список пуст"
             print(f"\nИнформация в списке присутствует\nПользователь № {user.get('id')} \n {user}", )
             Checking.checking_all_fields(dictionary=user)
+            print(User.model_validate(user))
+
 
         #     user_id =user.get('id')
         #     Checking.check_field(user_id)
