@@ -36,4 +36,3 @@ class Logger:
         cls.write_log_to_file(data_to_add)
 
 
-        print('pol')
