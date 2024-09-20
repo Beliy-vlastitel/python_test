@@ -22,3 +22,10 @@ class Checking:
     @staticmethod
     def checking_all_fields(dictionary):
         print(list(dictionary.keys()))
+
+    """Метод проверки количества пользователей"""
+    @staticmethod
+    def number_of_users(users):
+        number=len(users)
+        print(number)
+        return number

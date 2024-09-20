@@ -22,6 +22,7 @@ class TestCreteApi:
         result_get = PublicApi.script_checking()
         Checking.check_status_code(result=result_get, status_code=200)
         users = result_get.json()
+        Checking.number_of_users(users=users)
         for user in users:
             assert user!={}, "Список пуст"
             print(f"\nИнформация в списке присутствует\nПользователь № {user.get('id')} \n {user}", )
