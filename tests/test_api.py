@@ -1,3 +1,4 @@
+from pars import UsersPars
 from utils.api import PublicApi
 from utils.cheking import Checking
 import allure
@@ -22,23 +23,25 @@ class TestCreteApi:
         result_get = PublicApi.script_checking()
         Checking.check_status_code(result=result_get, status_code=200)
         users = result_get.json()
-        for user in users:
-            assert user!={}, "Список пуст"
-            print(f"\nИнформация в списке присутствует\nПользователь № {user.get('id')} \n {user}", )
-            Checking.checking_all_fields(dictionary=user)
-
-            user_id =user.get('id')
-            Checking.check_field(user_id)
-
-            name = user.get('name')
-            Checking.check_field(name)
-
-            username = user.get('username')
-            Checking.check_field(username)
-
-            email = user.get('email')
-            Checking.check_field(email)
-
-            assert '@' in email, '@ - Отсутствует в Email'
-            print('@ - присутствует в email')
-            print(f"id = {user_id}: name = {name}: username = {username}: email = {email}: ")
+        Checking.number_of_users(users=users)
+        # print(users)
+        users_pars=UsersPars().users_pars(users=users)
+        counter = 0
+        for user in users_pars:
+            counter+=1
+            # print(counter)
+            # print(user)
+            Checking.check_field(user)
+            Checking.check_field(user.company)
+            Checking.check_field(user.address)
+            Checking.check_field(user.address.geo)
+            """ Или так """
+            assert user.id is not None, "ID не должен быть None"
+            assert user.name, "Имя не должно быть пустым"
+            assert user.username, "Имя пользователя не должно быть пустым"
+            assert user.email, "Email не должен быть пустым"
+            assert user.phone, "Телефон не должен быть пустым"
+            assert user.website, "Вебсайт не должен быть пустым"
+            assert user.company.name, "Название компании не должно быть пустым"
+            assert user.company.catchPhrase, "Catchphrase компании не должно быть пустым"
+            assert user.company.bs, "BS компании не должен быть пустым"
