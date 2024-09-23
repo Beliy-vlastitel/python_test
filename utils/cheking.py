@@ -1,7 +1,6 @@
 """Методы для проверки ответов наших запросов"""
 
 
-
 class Checking:
 
     """Метод для проверки статус кода"""
@@ -15,7 +14,7 @@ class Checking:
     @staticmethod
     def check_field(field):
         """Метод для проверки полей"""
-        assert field != {}, 'Поле отсутствует'
+        assert field != "None", 'Поле отсутствует'
         print(f"Успешно! Поле = {field}")
 
         """Метод проверки количества ключей полей"""
@@ -31,5 +30,4 @@ class Checking:
     @staticmethod
     def number_of_users(users):
         number=len(users)
-        print(number)
-        return number
+        return number, print(f"Имеется {number} пользователей")

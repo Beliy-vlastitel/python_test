@@ -1,3 +1,6 @@
+from pydantic import parse_obj_as
+
+from pars import UsersPars
 from utils.api import PublicApi
 from utils.cheking import Checking
 from utils.pars import User
@@ -24,24 +27,30 @@ class TestCreteApi:
         Checking.check_status_code(result=result_get, status_code=200)
         users = result_get.json()
         Checking.number_of_users(users=users)
-        for user in users:
-            assert user!={}, "Список пуст"
-            print(f"\nИнформация в списке присутствует\nПользователь № {user.get('id')} \n {user}", )
-            Checking.checking_all_fields(dictionary=user)
-            print("\n" , User.model_validate(user))
+        # print(users)
+        users_pars=UsersPars().users_pars(users=users)
+        for user in users_pars:
+            print(user.id)
+            print(user.name)
+            print(user.email)
 
-            # user_id =user.get('id')
-            # Checking.check_field(user_id)
-            #
-            # name = user.get('name')
-            # Checking.check_field(name)
-            #
-            # username = user.get('username')
-            # Checking.check_field(username)
-            #
-            # email = user.get('email')
-            # Checking.check_field(email)
-            #
-            # assert '@' in email, '@ - Отсутствует в Email'
-            # print('@ - присутствует в email')
-            # print(f"id = {user_id}: name = {name}: username = {username}: email = {email}: ")
+        #     assert user!={}, "Список пуст"
+        #     print(f"\nИнформация в списке присутствует\nПользователь № {user.get('id')} \n {user}", )
+        #     Checking.checking_all_fields(dictionary=user)
+        #     print("\n", User.model_validate(user), "\n")
+        #
+        #     user_id =user.get('id')
+        #     Checking.check_field(user_id)
+        #
+        #     name = user.get('name')
+        #     Checking.check_field(name)
+        #
+        #     username = user.get('username')
+        #     Checking.check_field(username)
+        #
+        #     email = user.get('email')
+        #     Checking.check_field(email)
+        #
+        #     assert '@' in email, '@ - Отсутствует в Email'
+        #     print('@ - присутствует в email')
+        #     print(f"id = {user_id}: name = {name}: username = {username}: email = {email}: ")
