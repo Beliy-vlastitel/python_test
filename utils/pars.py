@@ -11,6 +11,9 @@ class User(BaseModel):
     website: str
     company: dict
 
+    # def field_validation(self):
+
+
 
 
 
