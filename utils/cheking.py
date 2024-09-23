@@ -11,13 +11,21 @@ class Checking:
         assert status_code == result.status_code, 'ОШИБКА, Статус-код не совпадает'
         print(f"Успешно! Статус код = {result.status_code}")
 
+    # @staticmethod
+    # def check_field(field):
+    #     """Метод для проверки полей"""
+    #     assert field != "None", 'Поле отсутствует'
+    #     print(f"Успешно! Поле = {field}")
+
     @staticmethod
     def check_field(field):
         """Метод для проверки полей"""
-        assert field != "None", 'Поле отсутствует'
-        print(f"Успешно! Поле = {field}")
+        for i in field:
+            assert i in field, 'Поле отсутствует'
+            print('\n'f"Успешно! Поле {i} присутствует "'\n')
 
         """Метод проверки количества ключей полей"""
+
     @staticmethod
     def checking_all_fields(dictionary):
         keys = list(dictionary.keys())

@@ -11,6 +11,7 @@ class Address(BaseModel):
     suite: str
     city: str
     zipcode: str
+    geo: Geo
 
 
 class Company(BaseModel):
