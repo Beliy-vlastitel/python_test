@@ -46,3 +46,4 @@ class TestCreteApi:
             assert user.company.catchPhrase, "Catchphrase компании не должно быть пустым"
             assert user.company.bs, "BS компании не должен быть пустым"
             print("sddsdsdwsdwdwd13d1")
+            print(12212124214214124)
