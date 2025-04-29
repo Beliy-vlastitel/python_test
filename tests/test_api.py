@@ -45,3 +45,4 @@ class TestCreteApi:
             assert user.company.name, "Название компании не должно быть пустым"
             assert user.company.catchPhrase, "Catchphrase компании не должно быть пустым"
             assert user.company.bs, "BS компании не должен быть пустым"
+            print(12212124214214124)
